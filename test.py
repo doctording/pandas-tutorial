@@ -25,5 +25,41 @@ def test2():
   print 'M' in list(df.columns)
   print df
 
+def test3():
+  """
+  1. dataframe 查
+  """
+  data3 = { 'A' : { 'a':1, 'b':4}, 'B': {'a':2,'b':5}, 'C':{'a':3, 'c':6} }
+  df = pd.DataFrame(data=data3)
+  print df.values
+  print df.columns
+  # index + column 定位
+  print df.at['a', 'B'] # 'a' index(行), 'B' column
+  print df['A'] # 'A' column
+  print df.loc[['b', 'c']] # 'b', 'c',index(行)
+  print df.loc['b'].at['B'] # 'b' index(行),, 'B' column
+  print "===="
+  print df.iloc[0] # 第0行
+  print df.iloc[0, 1] # 第0行,第1列
+
+
+def test4():
+  """
+  1. dataframe alter
+  """
+  data3 = { 'A' : { 'a':1, 'b':4}, 'B': {'a':2,'b':5}, 'C':{'a':3, 'c':6} }
+  df = pd.DataFrame(data=data3)
+  df2 = df.copy() # 深度拷贝
+  print df2
+  df2['D'] = [1.0, 5, 7] # add 'D' column
+  df2.pop('B')
+  print df2
+  df2.insert(1, 'bar', [ 1, 2, None]) # insert 'bar' column
+  df2.insert(1, 'bar2', [ 1, None, 2])
+  print df2
+  df3 = df2.assign(E=lambda x: x['A'] + x['D'])
+  print df3
+ 
+
 if __name__ == '__main__':
-  test2()
+  test4()

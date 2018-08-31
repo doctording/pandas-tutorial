@@ -1,3 +1,32 @@
+## 个人整理
+
+pandas官方文档：http://pandas.pydata.org/pandas-docs/stable/index.html
+
+### 概念
+
+#### Series
+
+Series是pandas中暴露给我们使用的基本对象，它是由相同元素类型构成的一维数据结构，同时具有列表和字典的属性（字典的属性由索引赋予）。
+
+Series：有序，有索引
+list：  有序，无索引
+dict：  无序，有索引
+
+#### DataFrame
+
+http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html
+
+数据帧(DataFrame)是二维数据结构，即数据以行和列的表格方式排列。
+
+数据帧(DataFrame)的功能特点：
+
+1. 潜在的列是不同的类型
+2. 大小可变
+3. 标记轴(行和列)
+4. 可以对行和列执行算术运算
+
+---
+
 ## 教程目录
 <details>
 

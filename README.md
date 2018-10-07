@@ -56,6 +56,44 @@ http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.xs.html#p
 
 http://pandas.pydata.org/pandas-docs/stable/dsintro.html#alternate-constructors
 
+
+# pivot_table数据处理注意
+
+* 不同的数值类型，做聚合操作，pandas会处理掉不符合规范的数据列 
+
+```python
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import pandas as pd
+import numpy as np
+
+
+def test_pivot_table():
+    """
+    test_pivot_table
+    """
+    data3 = {'A_column': {'a': 1, 'b': 4, 'c': 10}, 'B_metric': {'a': "a", 'b': "b", 'c': "c"}, 'C_metric': {'a': 3, 'b': 10.2, 'c': 10.5}}
+    df = pd.DataFrame(data=data3)
+    print(df)
+    df2 = df.pivot_table(
+        index=['A_column'],
+        values=['B_metric', 'C_metric'],
+        aggfunc=np.sum,
+    )
+    print(df2)
+    df3 = df.pivot_table(
+        index=['A_column'],
+        values=['B_metric', 'C_metric'],
+        aggfunc=np.max,
+    )
+    print(df3)
+
+if __name__ == '__main__':
+    test_pivot_table()
+
+```
+
 ---
 
 ## 教程目录
